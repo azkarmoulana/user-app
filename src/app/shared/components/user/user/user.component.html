@@ -1,1 +1,20 @@
-<p>user works!</p>
+<div class="flex items-center p-4 rounded shadow-md gap-x-6">
+  <img class="w-16 h-16 rounded-full" [src]="user.avatar" alt="user avatar" />
+  <div>
+    <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">
+      {{ user.firstName }} {{ user.lastName }}
+    </h3>
+    <a
+      href="mailto: alax.raily@gmail.com"
+      class="text-sm font-semibold leading-6 text-indigo-600"
+      >{{ user.email }}</a
+    >
+  </div>
+  <button
+    class="px-4 py-2 text-black text-yellow-500 rounded-lg bg-white-500 w-112 hover:outline-none focus:outline-none"
+    [ngClass]="{ 'text-yellow-500': user.isFavourite }"
+    (click)="onFavouriteClick(user.id)"
+    data-testid="fav-button">
+    <fa-icon [icon]="faStar"></fa-icon>
+  </button>
+</div>
