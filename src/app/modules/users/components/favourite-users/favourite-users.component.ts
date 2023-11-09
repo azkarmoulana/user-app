@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { fadeIn, fadeOut } from '@Animations';
 import { IUser } from '../../models/user';
 import { UsersService } from '../../services/users.service';
 
@@ -6,6 +7,7 @@ import { UsersService } from '../../services/users.service';
   selector: 'app-favourite-users',
   templateUrl: './favourite-users.component.html',
   styleUrls: ['./favourite-users.component.scss'],
+  animations: [fadeIn, fadeOut],
 })
 export class FavouriteUsersComponent implements OnInit {
   favUsers: IUser[] = [];

@@ -4,11 +4,13 @@ import { getRandomUserId } from '@Utils';
 import { IUser } from '../../models/user';
 import { DataService } from '../../services/data.service';
 import { UsersService } from '../../services/users.service';
+import { fadeIn, fadeOut } from '@Animations';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
+  animations: [fadeIn, fadeOut],
 })
 export class UsersComponent implements OnInit, OnDestroy {
   initialUserCount = 10;
