@@ -1,0 +1,24 @@
+<header class="fixed z-50 w-screen bg-white shadow-sm">
+  <nav
+    class="flex items-center justify-between p-6 mx-auto max-w-7xl lg:px-8"
+    aria-label="Global">
+    <div class="flex lg:flex-1">
+      <a [routerLink]="['/users']" class="-m-1.5 p-1.5">
+        <img
+          class="w-auto h-8"
+          src="../../../../assets/img/logo.png"
+          alt="my tomorrows logo" />
+      </a>
+    </div>
+    <div class="lg:flex lg:gap-x-12">
+      <h1 data-testid="header-text" class="text-2xl">Users App</h1>
+    </div>
+    <div class="lg:flex lg:flex-1 lg:justify-end">
+      <a
+        [routerLink]="['/users/favourite']"
+        class="text-sm font-semibold leading-6 text-gray-900"
+        >Favourite users <span aria-hidden="true">&rarr;</span></a
+      >
+    </div>
+  </nav>
+</header>
