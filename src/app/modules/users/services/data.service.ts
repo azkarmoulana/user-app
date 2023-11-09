@@ -23,4 +23,12 @@ export class DataService {
         })
       );
   }
+
+  getNewUser(id: number): Observable<any> {
+    return this.http.get(GET_USERS_API + `/${id}`).pipe(
+      catchError(() => {
+        return [];
+      })
+    );
+  }
 }
