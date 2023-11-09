@@ -1,1 +1,22 @@
-<p>users works!</p>
+<div class="py-24 bg-white sm:py-32">
+  <div
+    class="grid px-6 mx-auto max-w-7xl gap-x-8 gap-y-20 lg:px-8 xl:grid-cols-3">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        Welcome all the random users
+      </h2>
+      <p class="mt-6 text-lg leading-8 text-gray-600">
+        Here are 10 random users and don't forget to select your favourite ones
+      </p>
+    </div>
+    <ul
+      role="list"
+      class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+      <li *ngFor="let user of users">
+        <app-user
+          [user]="user"
+          (favUserSelect)="onFavUserSelect($event)"></app-user>
+      </li>
+    </ul>
+  </div>
+</div>
