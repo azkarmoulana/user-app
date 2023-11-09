@@ -1,1 +1,46 @@
-<p>favourite-users works!</p>
+<div class="py-24 bg-white sm:py-32">
+  <div
+    class="grid px-6 mx-auto max-w-7xl gap-x-8 gap-y-20 lg:px-8 xl:grid-cols-3"
+    *ngIf="favUsers.length; else noFavUsers">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        Here are your favourite users
+      </h2>
+      <p class="mt-6 text-lg leading-8 text-gray-600">
+        Don't like them anymore? just remove them...
+      </p>
+    </div>
+    <ul
+      role="list"
+      class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+      <li *ngFor="let user of favUsers">
+        <app-user
+          [user]="user"
+          (favUserSelect)="onFavUserSelect($event)"></app-user>
+      </li>
+    </ul>
+  </div>
+
+  <ng-template #noFavUsers>
+    <div class="py-24 sm:py-32">
+      <div class="px-6 mx-auto max-w-7xl lg:px-8">
+        <div class="max-w-2xl mx-auto lg:text-center">
+          <h2 class="text-base font-semibold leading-7 text-green-700">
+            Favourite users
+          </h2>
+          <p
+            class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            You don't have any favourite users yet
+          </p>
+          <p class="mt-6 text-lg leading-8 text-gray-600 hover:text-underline">
+            Go back to
+            <a [routerLink]="['/users']" class="font-semibold text-green-700"
+              >home</a
+            >
+            and select your favourite users. You can select upto 10 users
+          </p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

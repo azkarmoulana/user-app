@@ -47,7 +47,9 @@ export class UsersComponent implements OnInit, OnDestroy {
     });
   }
 
-  onFavUserSelect($event: any) {}
+  onFavUserSelect(favUserId: number): void {
+    this.userService.addFavUser(favUserId);
+  }
 
   ngOnDestroy() {
     this.apiReqSubscription.unsubscribe();
