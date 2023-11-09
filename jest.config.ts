@@ -11,10 +11,8 @@ module.exports = {
     '@Animations': '<rootDir>/src/app/shared/animations',
     '@Utils': '<rootDir>/src/app/shared/utils',
   },
-  globals: {
-    'ts-jest': {
-      tsConfig: '<rootDir>/tsconfig.spec.json',
-      stringifyContentPathRegex: '\\.html$',
-    },
+  'ts-jest': {
+    tsConfig: '<rootDir>/tsconfig.spec.json',
+    stringifyContentPathRegex: '\\.html$',
   },
 };
