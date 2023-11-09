@@ -7,7 +7,9 @@ import { IUser } from '../models/user';
 })
 export class UsersService {
   private users: IUser[] = [];
+  private favUsers: IUser[] = [];
   users$ = new BehaviorSubject<IUser[]>(this.users);
+  favUsers$ = new BehaviorSubject<IUser[]>(this.favUsers);
 
   // set all users
   setAllUsers(payload: any): void {
@@ -45,5 +47,26 @@ export class UsersService {
     }
 
     this.users$.next(this.users);
+  }
+
+  // add favourite user
+  addFavUser(id: number): void {
+    this.users.forEach((el, index) => {
+      if (el.id === id) {
+        if (this.users[index].isFavourite === false) {
+          if (this.favUsers.length < 10) {
+            this.users[index].isFavourite = true;
+            this.favUsers.push(this.users[index]);
+          }
+        } else {
+          this.users[index].isFavourite = false;
+          const _favUserIndex = this.favUsers.indexOf(this.users[index]);
+          this.favUsers.splice(_favUserIndex, 1);
+        }
+      }
+    });
+
+    this.users$.next(this.users);
+    this.favUsers$.next(this.favUsers);
   }
 }
