@@ -26,4 +26,24 @@ export class UsersService {
 
     this.users$.next(this.users);
   }
+
+  // set single user
+  setUser(payload: any): void {
+    const _user = payload.data;
+    if (_user) {
+      const newUser = {
+        id: _user.id,
+        firstName: _user.first_name,
+        lastName: _user.last_name,
+        email: _user.email,
+        avatar: _user.avatar,
+        isFavourite: false,
+      };
+
+      this.users.pop();
+      this.users.unshift(newUser);
+    }
+
+    this.users$.next(this.users);
+  }
 }
