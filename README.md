@@ -4,7 +4,7 @@
   <img width="800" src="https://i.imgur.com/qeXDD02.png" alt="users app">
 </p>
 
-Deployed link: https://654d355af47ea61e795f5d8f--flourishing-kelpie-1debc4.netlify.app/users
+Deployed link: https://flourishing-kelpie-1debc4.netlify.app/users
 ***
 ### How to run the app locally
 1. Clone the repository
